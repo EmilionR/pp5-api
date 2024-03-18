@@ -15,6 +15,23 @@ class PostSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
+    
+    # Validate image size
+    def validate_image(self, value):
+        # Check if the file is bigger than 2MB
+        if value.size > 1024 * 1024 * 2:
+            raise serializers.ValidationError(
+                'Image size is over 2MB!'
+            )
+        if value.image.height > 4096:
+            raise serializers.ValidationError(
+                'Image height exceeds 4096 pixels.'
+            )
+        if value.image.width > 4096:
+            raise serializers.ValidationError(
+                'Image width exceeds 4096 pixels.'
+            )
+        return value
 
     class Meta:
         model = Post
