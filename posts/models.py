@@ -9,6 +9,13 @@ class Post(models.Model):
     content is the text content
     friends_only is used for restricting visibility to friends only
     """
+
+    image_filters = [
+        ('normal', 'Normal'),
+        ('example', 'Example'),
+        ('other', 'Other')
+    ]
+
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -18,6 +25,10 @@ class Post(models.Model):
     #  Default image set so that I can always refer to 'image.url'
     image = models.ImageField(
         upload_to='images/', default='../default_post_adbhtw', blank=True
+    )
+    #Image filter options for when I'll implement them
+    image_filter = models.Charfield(
+        max_length=32, choices=image_filters, default='normal'
     )
 
     # Order posts by time of posting, starting with the most recent
