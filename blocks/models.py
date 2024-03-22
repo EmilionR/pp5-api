@@ -10,7 +10,9 @@ class Block(models.Model):
     
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    target = models.ForeignKey(User, on_delete=models.CASCADE)
+    target = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="blocked"
+    )
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
