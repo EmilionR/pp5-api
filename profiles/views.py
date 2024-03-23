@@ -12,7 +12,7 @@ class ProfileList(generics.ListAPIView):
     serializer_class = ProfileSerializer
     
 
-class ProfileDetail(RetrieveUpdateAPIView):
+class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
     Detail view of a single post
     If owner, update the profile
