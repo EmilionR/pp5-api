@@ -26,4 +26,5 @@ urlpatterns = [
     path('', include('blocks.urls')),
     path('', include('followers.urls')),
     path('', include('friends.urls')),
+    path('', include('reports.urls')),
 ]
