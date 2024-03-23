@@ -25,6 +25,8 @@ class ProfileList(generics.ListAPIView):
     # Filter criteria, based on database relations
     filterset_fields = [
         'owner__following__followed__profile',
+        'owner__followed__owner__profile',
+        'owner__friend__owner__profile',
     ]
     # Fields by which to order profile
     ordering_fields = [
