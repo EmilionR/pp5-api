@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'blocks',
     'followers',
     'friends',
+    'reports',
     'rest_framework',
 ]
 
