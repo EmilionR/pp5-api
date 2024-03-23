@@ -13,6 +13,8 @@ class PostSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     like_id = serializers.SerializerMethodField()
     report_id = serializers.SerializerMethodField()
+    like_count = serializers.ReadOnlyField()
+    comment_count = serializers.ReadOnlyField()
 
     # Check if current user is the owner
     def get_is_owner(self, obj):
@@ -61,5 +63,6 @@ class PostSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
             'friends_only', 'title', 'content', 'image', 'image_filter',
-            'created_on', 'updated_on', 'like_id', 'report_id'
+            'created_on', 'updated_on', 'like_id', 'report_id',
+            'like_count', 'comment_count',
         ]
