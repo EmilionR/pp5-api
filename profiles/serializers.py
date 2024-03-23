@@ -37,7 +37,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         if user.is_authenticated:
             block = Block.objects.filter(
-                owner=user, block=obj.owner
+                owner=user, target=obj.owner
             ).first()
             return block.id if block else None
         return None
