@@ -117,9 +117,7 @@ else:
         r"^http:\/\/localhost:3000$",
         r"^https:\/\/localhost:3000$",
     ]
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN_DEV')
-    ]
+    
 CORS_ALLOW_CREDENTIALS = True
 
 REST_USE_JWT = True
