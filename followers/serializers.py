@@ -8,13 +8,13 @@ class FollowerSerializer(serializers.ModelSerializer):
     Serialize the Follower model,
     Add fields for displaying the details
     """
-    follower = serializers.ReadOnlyField(source='follower.username')
+    owner = serializers.ReadOnlyField(source='owner.username')
     followed_name = serializers.ReadOnlyField(source='followed.username')
 
     class Meta:
         model = Follower
         fields = [
-            'id', 'follower', 'created_on', 'followed', 'followed_name'
+            'id', 'owner', 'created_on', 'followed', 'followed_name'
         ]
 
     # Custom create method to ensure only one instance of each pairing
