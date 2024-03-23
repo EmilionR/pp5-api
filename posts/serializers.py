@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
+from reports.models import Report
 
 class PostSerializer(serializers.ModelSerializer):
     """
@@ -11,6 +12,7 @@ class PostSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     like_id = serializers.SerializerMethodField()
+    report_id = serializers.SerializerMethodField()
 
     # Check if current user is the owner
     def get_is_owner(self, obj):
@@ -25,6 +27,16 @@ class PostSerializer(serializers.ModelSerializer):
                 owner=user, post=obj
             ).first()
             return like.id if like else None
+        return None
+    
+    # Get id of reports
+    def get_report_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            report = Report.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return report.id if report else None
         return None
     
     # Validate image size
@@ -49,5 +61,5 @@ class PostSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
             'friends_only', 'title', 'content', 'image', 'image_filter',
-            'created_on', 'updated_on'
+            'created_on', 'updated_on', 'like_id', 'report_id'
         ]
