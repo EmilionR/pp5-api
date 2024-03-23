@@ -60,7 +60,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'emil-pp5-api.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'emil-pp5-api-7b47e7ded060.herokuapp.com']
 
 
 # Application definition
