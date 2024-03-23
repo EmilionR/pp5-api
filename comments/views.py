@@ -4,6 +4,7 @@ from .serializers import CommentSerializer, CommentDetailSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 
+
 class CommentList(generics.ListCreateAPIView):
     """
     List comments

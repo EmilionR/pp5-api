@@ -11,7 +11,8 @@ class PostList(generics.ListAPIView):
     """
     queryset = Post.objects.annotate(
         like_count=Count('likes', distinct=True),
-        comment_count=Count('comment', distinct=True)
+        comment_count=Count('comment', distinct=True),
+        report_count=Count('report', distinct=True)
     ).order_by('-created_on')
     filter_backends = [
         filters.OrderingFilter,
@@ -22,7 +23,7 @@ class PostList(generics.ListAPIView):
     filterset_fields = [
         'owner__profile',
         'owner__followed__owner__profile',
-        'likes__owner__profile', 
+        'likes__owner__profile',
     ]
     # Fields that are queried when searching
     search_fields = [
@@ -33,6 +34,7 @@ class PostList(generics.ListAPIView):
     ordering_fields = [
         'like_count',
         'comment_count',
+        'report_count',
         'like__created_on',
     ]
 
