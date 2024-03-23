@@ -10,6 +10,10 @@ class ProfileSerializer(serializers.ModelSerializer):
     following_id = serializers.SerializerMethodField()
     friend_id = serializers.SerializerMethodField()
     block_id = serializers.SerializerMethodField()
+    post_count = serializers.ReadOnlyField()
+    follower_count = serializers.ReadOnlyField()
+    following_count = serializers.ReadOnlyField()
+    friend_count = serializers.ReadOnlyField()
 
     # Check if current user is the owner
     def get_is_owner(self, obj):
@@ -50,5 +54,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = [
             'id', 'owner', 'created_on', 'updated_on', 'name', 'content',
-            'image', 'is_owner', 'friend_id', 'following_id', 'block_id'
+            'image', 'is_owner', 'friend_id', 'following_id', 'block_id',
+            'post_count', 'follower_count', 'following_count', 'friend_count'
         ]
