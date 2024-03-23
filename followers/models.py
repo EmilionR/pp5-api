@@ -14,10 +14,10 @@ class Follower(models.Model):
     followed = models.ForeignKey(
         User, related_name='followed', on_delete=models.CASCADE
     )
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ['-created_on']
         # prevent duplicate follower instances
         unique_together = ['follower', 'followed']
 
