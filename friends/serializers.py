@@ -14,7 +14,7 @@ class FriendSerializer(serializers.ModelSerializer):
     class Meta:
         model = Friend
         fields = [
-            'id', 'follower', 'created_on', 'friend', 'friend_name'
+            'id', 'owner', 'created_on', 'friend', 'friend_name'
         ]
 
     # Custom create method to ensure only one instance of each pairing
