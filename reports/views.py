@@ -2,6 +2,7 @@ from rest_framework import generics, permissions
 from .models import Report
 from .serializers import ReportSerializer, ReportDetailSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class ReportList(generics.ListCreateAPIView):
@@ -10,6 +11,8 @@ class ReportList(generics.ListCreateAPIView):
     If logged in, create a report
     """
     queryset = Report.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['post']
     serializer_class = ReportSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     
