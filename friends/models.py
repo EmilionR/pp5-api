@@ -9,7 +9,7 @@ class Friend(models.Model):
     'friend' is a User instance chosen as a friend by 'owner'
     """
     owner = models.ForeignKey(
-        User, related_name='following', on_delete=models.CASCADE
+        User, related_name='friender', on_delete=models.CASCADE
     )
     friend = models.ForeignKey(
         User, related_name='friend', on_delete=models.CASCADE
