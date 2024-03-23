@@ -11,10 +11,12 @@ class ProfileSerializer(serializers.ModelSerializer):
     friend_id = serializers.SerializerMethodField()
     block_id = serializers.SerializerMethodField()
 
+    # Check if current user is the owner
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
     
+    # Get id of followed user
     def get_following_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
@@ -24,6 +26,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             return following.id if following else None
         return None
     
+    # Get id of friend
     def get_friend_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
@@ -33,6 +36,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             return friend.id if friend else None
         return None
     
+    # Get id of blocked user
     def get_block_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
