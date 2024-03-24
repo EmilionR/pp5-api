@@ -14,14 +14,16 @@ from pathlib import Path
 import os
 import dj_database_url
 import re
+import logging
 
 if os.path.exists('env.py'):
     import env
 
-CLOUDINARY_STORAGE = {
-    "CLOUDINARY_URL": os.environ.get('CLOUDINARY_URL')
-}
+logger = logging.getLogger(__name__)
 
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+}
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,6 +49,7 @@ REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
@@ -56,17 +59,24 @@ REST_AUTH_SERIALIZERS = {
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     'localhost',
+    '.gitpod.io',
+    '.herokuapp.com',
     '127.0.0.1',
-    os.environ.get('ALLOWED_HOST')
-    ]
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:8000",
+    "http://localhost:3000",
+    "https://*.gitpod.io",
+    "https://*.herokuapp.com",
+]
 
 # Application definition
 
@@ -98,6 +108,7 @@ INSTALLED_APPS = [
     'friends',
     'reports',
 ]
+
 SITE_ID = 1
 
 MIDDLEWARE = [
@@ -110,25 +121,25 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+"""
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN')
     ]
-if 'CLIENT_ORIGIN_DEV' in os.environ:
+else:
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        os.environ.get('CLIENT_ORIGIN'),
+        r"^http://.*\.gitpod\.io$",
+        r"^https://.*\.gitpod\.io$",
+        r"^http:\/\/localhost:3000$",
+        r"^https:\/\/localhost:3000$",
+    ]
+    CORS_ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN_DEV')
     ]
+"""
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-
-REST_USE_JWT = True
-JWT_AUTH_SECURE = True
-JWT_AUTH_COOKIE = 'my-app-auth'
-JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
-JWT_AUTH_SAMESITE = 'None'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
@@ -169,6 +180,7 @@ else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
