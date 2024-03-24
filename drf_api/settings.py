@@ -120,7 +120,8 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         os.environ.get('CLIENT_ORIGIN'),
         os.environ.get('CLIENT_ORIGIN_DEV')
     ]
-    
+
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 REST_USE_JWT = True
