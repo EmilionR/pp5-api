@@ -2,6 +2,7 @@ from rest_framework import generics, permissions
 from .models import Block
 from .serializers import BlockSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
+from rest_framework.response import Response
 
 
 class BlockList(generics.ListCreateAPIView):
@@ -17,7 +18,7 @@ class BlockList(generics.ListCreateAPIView):
         block_list = self.get_queryset()
         if request.user:
             block_list = block_list.filter(owner=request.user)
-        return block_list
+        return Response(block_list)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
