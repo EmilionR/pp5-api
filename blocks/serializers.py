@@ -8,7 +8,6 @@ class BlockSerializer(serializers.ModelSerializer):
     Serialize the Block model
     """
     owner = serializers.ReadOnlyField(source='owner.username')
-    target = serializers.ReadOnlyField(source='target.username')
 
     # Create method that avoids duplicate blocks
     def create(self, validated_data):
