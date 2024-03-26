@@ -38,7 +38,6 @@ class ProfileList(generics.ListAPIView):
         'owner__followed__created_on',
     ]
 
-    
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
