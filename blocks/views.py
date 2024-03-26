@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions
-from models import Block
-from serializers import BlockSerializer
+from .models import Block
+from .serializers import BlockSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 
 
