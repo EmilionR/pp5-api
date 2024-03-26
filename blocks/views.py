@@ -2,23 +2,27 @@ from rest_framework import generics, permissions
 from .models import Block
 from .serializers import BlockSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
-from rest_framework.response import Response
 
 
 class BlockList(generics.ListCreateAPIView):
     """
     List of blocks
-    if authenticated, create a block
+    if authenticated, create a like
     """
     queryset = Block.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = BlockSerializer
 
-    def get(self, request, *args, **kwargs):
-        block_list = self.get_queryset()
-        if request.user:
-            block_list = block_list.filter(owner=request.user)
-        return Response(block_list)
+    def get_queryset(self):
+        """
+        This method returns a queryset of blocks for the currently authenticated user.
+        If the user is not authenticated, it returns an empty queryset.
+        """
+        user = self.request.user
+        if user.is_authenticated:
+            return Block.objects.filter(owner=user)
+        else:
+            return Block.objects.none()
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
