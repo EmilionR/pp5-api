@@ -1,5 +1,5 @@
 from django.urls import path
-from likes import views
+from blocks import views
 
 urlpatterns = [
     path('blocks/', views.BlockList.as_view()),
