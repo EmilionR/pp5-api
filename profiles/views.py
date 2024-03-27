@@ -44,6 +44,10 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     Detail view of a single post
     If owner, update the profile
     """
-    queryset = Profile.objects.all()
+    queryset = Profile.objects.annotate(
+        post_count=Count('owner__post', distinct=True),
+        follower_count=Count('owner__followed', distinct=True),
+        following_count=Count('owner__following', distinct=True)
+    ).order_by('-created_at')
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = ProfileSerializer
