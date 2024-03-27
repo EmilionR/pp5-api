@@ -17,8 +17,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='images/',
-        default='https://res.cloudinary.com/dfs3h5zak/image/upload/v1711533133/media/images/default-avatar_vwnlto.jpg'
+        upload_to='images/', default='./default-avatar_vwnlto'
     )
 
     # Order profiles by time of creation in descending order
