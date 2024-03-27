@@ -48,6 +48,6 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
         post_count=Count('owner__post', distinct=True),
         follower_count=Count('owner__followed', distinct=True),
         following_count=Count('owner__following', distinct=True)
-    ).order_by('-created_at')
+    ).order_by('-created_on')
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = ProfileSerializer
