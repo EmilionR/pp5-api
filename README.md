@@ -1,4 +1,26 @@
+# Flow - Backend API
+![Project-image](documentation/responsive.png)
 
+Flow is an image-sharing social media site. Users can post images, comment on posts, and follow other users.
+Users can also create personal feeds by following other users and liking posts. They can also hide unwanted content, block users, create their own inner circle of selected followers, and more.
+
+[View the website here](https://fooroom-9cc630806337.herokuapp.com/)
+
+## Contents
+
+
+* [General Information](#general-information)
+* [Deployment](#deployment)
+  * [GitHub](#github)
+  * [Heroku](#heroku)
+
+## General Information
+
+You can find detailed information in [the pp5 Front-end repo](https://github.com/EmilionR/pp5-frontend). For testing data, [see the testing file](https://github.com/EmilionR/pp5-frontend/blob/main/TESTING.md)
+
+## Deployment
+
+### Heroku
 
 __Project Settings:__
 
@@ -9,7 +31,7 @@ __Project Settings:__
 
 __Requirements__
 
-In order to deploy the project, Heroku needs information about the technologies used. Before deployment, I create a list of requirements in a file called. In some cases, you may also need a runtime.txt file specifying the version of Python to use.
+In order to deploy the API, Heroku needs information about the technologies used. Before deployment, I create a list of requirements in a file called. In some cases, you may also need a runtime.txt file specifying the version of Python to use.
 
 * Create a plain file called Procfile without any file suffix, at the root level of the project.
 * Type ```web: gunicorn fooroom.wsgi:application``` into the Procfile and save.
@@ -48,3 +70,19 @@ Now, all that's left to do is to deploy and open the app.
 * Click "Deploy branch"
 * Wait for Heroku to finish building the app.
 * Upon successful deployment, click the "View" button to open the app.
+
+### GitHub
+
+__How to Fork the Repository__
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, [EmilionR/pp5-api](https://github.com/EmilionR/pp5-api)
+3. Click the Fork button in the top right corner.
+
+__How to Clone the Repository__
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, [EmilionR/pp5-api](https://github.com/EmilionR/pp5-api)
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
