@@ -39,10 +39,10 @@ class ProfileList(generics.ListAPIView):
     ]
 
 
-class ProfileDetail(generics.RetrieveUpdateAPIView):
+class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Detail view of a single post
-    If owner, update the profile
+    Detail view of a single profile
+    If owner, update or delete the profile
     """
     queryset = Profile.objects.annotate(
         post_count=Count('owner__post', distinct=True),
@@ -51,3 +51,9 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     ).order_by('-created_on')
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = ProfileSerializer
+
+    def perform_destroy(self, instance):
+        # Delete the associated User instance
+        instance.owner.delete()
+        # Call the superclass method to delete the profile
+        super().perform_destroy(instance)

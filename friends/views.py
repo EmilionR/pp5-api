@@ -13,7 +13,7 @@ class FriendList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = FriendSerializer
 
-    # Associate the signed-in user with a follower.
+    # Associate the signed-in user with a friend.
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
