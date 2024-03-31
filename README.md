@@ -1,5 +1,5 @@
 # Flow - Backend API
-![Project-image](documentation/responsive.png)
+![Project-image](https://github.com/EmilionR/pp5-frontend/blob/main/documentation/responsive.png)
 
 Flow is an image-sharing social media site. Users can post images, comment on posts, and follow other users.
 Users can also create personal feeds by following other users and liking posts. They can also hide unwanted content, block users, create their own inner circle of selected followers, and more.
