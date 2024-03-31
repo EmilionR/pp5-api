@@ -39,6 +39,7 @@ All Python files were run validated with pep8 and cleaned until no errors were f
 | Profile Detail | PUT | Update the profile if valid | Pass |
 | Profile Detail | DELETE | Destroy the profile and its owner instance if valid | Pass |
 | Related instances | DELETE | Destroying a profile destroys all content related to its owner | Pass |
+| Serializer | Annotation | Annotate the number of posts, followers, and followed users of a profile | Pass |
 
 ### Posts
 | Feature | Action | Expected Outcome | Pass/Fail |
@@ -49,6 +50,7 @@ All Python files were run validated with pep8 and cleaned until no errors were f
 | Post Detail | POST | Create a new post if valid | Pass |
 | Post Detail | PUT | Update the post if valid | Pass |
 | Post Detail | DELETE | Destroy the post instance if valid | Pass |
+| Validators | Check file size | Validator rejects files that are too large | Pass |
 
 ### Comments
 | Feature | Action | Expected Outcome | Pass/Fail |
@@ -69,6 +71,7 @@ All Python files were run validated with pep8 and cleaned until no errors were f
 | Follower Detail | POST | Create a new follower if valid | Pass |
 | Follower Detail | PUT | Update the follower if valid | Pass |
 | Follower Detail | DELETE | Destroy the follower if valid | Pass |
+| Unique Together | No duplicates | The model prevents creating duplicate follow instances with the same owner and target user | Pass |
 
 ### Likes
 | Feature | Action | Expected Outcome | Pass/Fail |
@@ -79,6 +82,7 @@ All Python files were run validated with pep8 and cleaned until no errors were f
 | Like Detail | POST | Create a new like if valid | Pass |
 | Like Detail | PUT | Update the like if valid | Pass |
 | Like Detail | DELETE | Destroy the like if valid | Pass |
+| Unique Together | No duplicates | The model prevents creating duplicate like instances with the same owner and target post | Pass |
 
 ### Friends
 | Feature | Action | Expected Outcome | Pass/Fail |
@@ -89,6 +93,7 @@ All Python files were run validated with pep8 and cleaned until no errors were f
 | Friend Detail | POST | Create a new friend if valid | Pass |
 | Friend Detail | PUT | Update the friend if valid | Pass |
 | Friend Detail | DELETE | Destroy the friend if valid | Pass |
+| Unique Together | No duplicates | The model prevents creating duplicate friend instances with the same owner and target user | Pass |
 
 ### Blocks
 | Feature | Action | Expected Outcome | Pass/Fail |
@@ -99,6 +104,7 @@ All Python files were run validated with pep8 and cleaned until no errors were f
 | Block Detail | POST | Create a new block if valid | Pass |
 | Block Detail | PUT | Update the block if valid | Pass |
 | Block Detail | DELETE | Destroy the block if valid | Pass |
+| Unique Together | No duplicates | The model prevents creating duplicate block instances with the same owner and target user | Pass |
 
 ### Reports
 | Report List | GET | Show a list of all reports as JSON objects | Pass |
