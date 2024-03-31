@@ -5,6 +5,7 @@ from drf_api.permissions import IsOwnerOrReadOnly
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
 
+
 class ProfileList(generics.ListAPIView):
     """
     List of all profiles

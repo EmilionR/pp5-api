@@ -3,6 +3,7 @@ from posts.models import Post
 from likes.models import Like
 from reports.models import Report
 
+
 class PostSerializer(serializers.ModelSerializer):
     """
     Serialize posts and retrieve relevant data
@@ -20,7 +21,7 @@ class PostSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
-    
+
     # Get id of likes
     def get_like_id(self, obj):
         user = self.context['request'].user
@@ -30,7 +31,7 @@ class PostSerializer(serializers.ModelSerializer):
             ).first()
             return like.id if like else None
         return None
-    
+
     # Get id of reports
     def get_report_id(self, obj):
         user = self.context['request'].user
@@ -40,7 +41,7 @@ class PostSerializer(serializers.ModelSerializer):
             ).first()
             return report.id if report else None
         return None
-    
+
     # Validate image size
     def validate_image(self, value):
         # Check if the file is bigger than 2MB

@@ -8,7 +8,7 @@ class Like(models.Model):
     Like model, pairing an 'owner' and a 'post', where:
     'owner' is a User instance
     'post' is a Post instance.
-    
+
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(
@@ -24,4 +24,3 @@ class Like(models.Model):
 
     def __str__(self):
         return f'{self.owner} {self.post}'
-    

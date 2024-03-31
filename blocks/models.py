@@ -7,7 +7,7 @@ class Block(models.Model):
     Block model, pairing an 'owner' and a 'target', where:
     'owner' is the a User instance, and
     'target' is the User instance to block
-    
+
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     target = models.ForeignKey(
@@ -23,4 +23,3 @@ class Block(models.Model):
 
     def __str__(self):
         return f'{self.owner}, {self.target}'
-    

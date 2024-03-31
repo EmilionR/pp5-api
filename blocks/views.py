@@ -15,7 +15,8 @@ class BlockList(generics.ListCreateAPIView):
 
     def get_queryset(self):
         """
-        This method returns a queryset of blocks for the currently authenticated user.
+        This method returns a queryset of blocks
+        for the currently authenticated user.
         If the user is not authenticated, it returns an empty queryset.
         """
         user = self.request.user
@@ -26,6 +27,7 @@ class BlockList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
 
 class BlockDetail(generics.RetrieveDestroyAPIView):
     """

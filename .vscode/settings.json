@@ -24,5 +24,10 @@
    "workbench.colorTheme": "Visual Studio Dark",
    "terminal.integrated.gpuAcceleration": "canvas",
    "editor.defaultFormatter": "HookyQR.beautify",
-   "editor.rulers": [79]
+   "editor.rulers": [
+      79
+   ],
+   "[python]": {
+      "editor.defaultFormatter": "mikoz.black-py"
+   }
 }

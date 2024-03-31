@@ -23,7 +23,7 @@ class CommentSerializer(serializers.ModelSerializer):
     # Get natural time for created_on
     def get_created_on(self, obj):
         return naturaltime(obj.created_on)
-    
+
     # Get natural time for updated_on
     def get_updated_on(self, obj):
         return naturaltime(obj.updated_on)

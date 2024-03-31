@@ -18,7 +18,6 @@ class PostListViewTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         print(response.data)
 
-
     def test_authenticated_user_can_post(self):
         """
         Test if authenticated users can create posts
@@ -28,7 +27,6 @@ class PostListViewTests(APITestCase):
         count = Post.objects.count()
         self.assertEqual(count, 1)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
 
     def test_unauthenticated_user_cant_post(self):
         """
@@ -40,13 +38,18 @@ class PostListViewTests(APITestCase):
 
 class PostDetailViewTests(APITestCase):
     def setUp(self):
-        test_user1 = User.objects.create_user(username='test_user1', password='pass')
-        test_user2 = User.objects.create_user(username='test_user2', password='pass')
+        test_user1 = User.objects.create_user(
+            username='test_user1', password='pass'
+            )
+        test_user2 = User.objects.create_user(
+            username='test_user2', password='pass'
+            )
         Post.objects.create(
             owner=test_user1, title='test title', content='test_user1s content'
         )
         Post.objects.create(
-            owner=test_user2, title='test title2', content='test_user2s content'
+            owner=test_user2, title='test title2',
+            content='test_user2s content'
         )
 
     def test_can_retrieve_post_with_valid_id(self):

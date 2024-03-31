@@ -15,7 +15,7 @@ class ReportList(generics.ListCreateAPIView):
     filterset_fields = ['post']
     serializer_class = ReportSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    
+
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
@@ -28,4 +28,3 @@ class ReportDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Report.objects.all()
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = ReportDetailSerializer
-    

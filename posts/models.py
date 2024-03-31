@@ -26,7 +26,7 @@ class Post(models.Model):
     image = models.ImageField(
         upload_to='images/', default='../default_post_adbhtw', blank=True
     )
-    #Image filter options for when I'll implement them
+    # Image filter options for when I'll implement them
     image_filter = models.CharField(
         max_length=32, choices=image_filters, default='normal'
     )

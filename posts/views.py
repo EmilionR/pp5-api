@@ -5,6 +5,7 @@ from .serializers import PostSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 
+
 class PostList(generics.ListCreateAPIView):
     """
     List all Post instances
