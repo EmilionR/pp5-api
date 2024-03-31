@@ -7,6 +7,8 @@
 * [Posts](#posts)
 * [Comments](#comments)
 * [Followers](#followers)
+* [Admin Panel](#admin-panel)
+* [Authorization](#authorization-and-security)
 
 ## Validator Testing
 
@@ -114,3 +116,11 @@ I have thoroughly tested the behavior of all django models and views and double 
 | Report Detail | POST | Create a new report if valid | Pass |
 | Report Detail | PUT | Update the report if valid | Pass |
 | Report Detail | DELETE | Destroy the report if valid | Pass |
+
+### Admin panel
+The admin panel registers all instances of models that are relevant to admin operations. Namely, posts, comments, profiles, and reports.
+
+### Authorization and Security
+The API has a few layers of protection to ensure that only the intended client can use the API. I have tested the communication between the frontend and API to make sure everything is authorized correctly, and I have tried to access it incorrectly to verify that it rejects unverified connections.
+
+I have also used Postman to check request and response data to the API.
