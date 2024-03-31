@@ -21,6 +21,7 @@ All Python files were run validated with pep8 and cleaned until no errors were f
 </details>
 
 ## Manual Testing
+I have thoroughly tested the behavior of all django models and views and double checked that the serializers work as intended. I have tested each endpoint's response to each type of request in a number of ways to verify that they function correctly.
 
 ### DRF API
 | Feature | Action | Expected Outcome | Pass/Fail |
