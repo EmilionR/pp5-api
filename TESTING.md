@@ -63,33 +63,47 @@ All Python files were run validated with pep8 and cleaned until no errors were f
 ### Followers
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| Follower List | GET | Show a list of all followers as JSON objects | Pass |
+| Follower List | POST | Create a new follower if valid | Pass |
+| Follower Detail | GET | Return a specific follower if given a valid id | Pass |
+| Follower Detail | POST | Create a new follower if valid | Pass |
+| Follower Detail | PUT | Update the follower if valid | Pass |
+| Follower Detail | DELETE | Destroy the follower if valid | Pass |
 
 ### Likes
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| Like List | GET | Show a list of all likes as JSON objects | Pass |
+| Like List | POST | Create a new like if valid | Pass |
+| Like Detail | GET | Return a specific like if given a valid id | Pass |
+| Like Detail | POST | Create a new like if valid | Pass |
+| Like Detail | PUT | Update the like if valid | Pass |
+| Like Detail | DELETE | Destroy the like if valid | Pass |
 
 ### Friends
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| Friend List | GET | Show a list of all friends as JSON objects | Pass |
+| Friend List | POST | Create a new friend if valid | Pass |
+| Friend Detail | GET | Return a specific friend if given a valid id | Pass |
+| Friend Detail | POST | Create a new friend if valid | Pass |
+| Friend Detail | PUT | Update the friend if valid | Pass |
+| Friend Detail | DELETE | Destroy the friend if valid | Pass |
 
 ### Blocks
 | Feature | Action | Expected Outcome | Pass/Fail |
 | --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| Block List | GET | Show a list of all blocks as JSON objects | Pass |
+| Block List | POST | Create a new block if valid | Pass |
+| Block Detail | GET | Return a specific block if given a valid id | Pass |
+| Block Detail | POST | Create a new block if valid | Pass |
+| Block Detail | PUT | Update the block if valid | Pass |
+| Block Detail | DELETE | Destroy the block if valid | Pass |
 
 ### Reports
+| Report List | GET | Show a list of all reports as JSON objects | Pass |
+| Report List | POST | Create a new report if valid | Pass |
+| Report Detail | GET | Return a specific report if given a valid id | Pass |
+| Report Detail | POST | Create a new report if valid | Pass |
+| Report Detail | PUT | Update the report if valid | Pass |
+| Report Detail | DELETE | Destroy the report if valid | Pass |
