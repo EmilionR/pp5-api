@@ -2,7 +2,11 @@
 * [Validator Testing](#validator-testing)
   * [Python](#python)
 * [Manual Testing](#manual-testing)
-
+* [DRF API](#drf-api)
+* [Profiles](#profiles)
+* [Posts](#posts)
+* [Comments](#comments)
+* [Followers](#followers)
 
 ## Validator Testing
 
@@ -18,3 +22,20 @@ All Python files were run validated with pep8 and cleaned until no errors were f
 
 ## Manual Testing
 
+### DRF API
+
+### Profiles
+
+### Posts
+
+### Comments
+
+### Followers
+
+### Likes
+
+### Friends
+
+### Blocks
+
+### Reports

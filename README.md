@@ -8,15 +8,18 @@ Users can also create personal feeds by following other users and liking posts. 
 
 ## Contents
 
-
 * [General Information](#general-information)
+* [Testing](#testing)
 * [Deployment](#deployment)
   * [GitHub](#github)
   * [Heroku](#heroku)
 
 ## General Information
 
-You can find detailed information in [the pp5 Front-end repo](https://github.com/EmilionR/pp5-frontend). For testing data, [see the testing file](https://github.com/EmilionR/pp5-frontend/blob/main/TESTING.md)
+You can find detailed information in [the pp5 Front-end repo](https://github.com/EmilionR/pp5-frontend). For testing data, 
+
+## Testing
+For testing data, [see the testing file](TESTING.md)
 
 ## Deployment
 
