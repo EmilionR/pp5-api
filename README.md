@@ -9,6 +9,7 @@ Users can also create personal feeds by following other users and liking posts. 
 ## Contents
 
 * [General Information](#general-information)
+* [Database Model](#database-model)
 * [Testing](#testing)
 * [Deployment](#deployment)
   * [GitHub](#github)
@@ -16,7 +17,13 @@ Users can also create personal feeds by following other users and liking posts. 
 
 ## General Information
 
-You can find detailed information in [the pp5 Front-end repo](https://github.com/EmilionR/pp5-frontend). For testing data, 
+You can find detailed information in [the pp5 Front-end repo](https://github.com/EmilionR/pp5-frontend).
+
+## Database Model
+
+This project is built on a relational database, using PostgreSQL. The various elements of this project are related to each other in a number of ways, mostly via user primary keys assigned as foreignkeys to different elements.
+
+![Database Model](documentation/erd.png)
 
 ## Testing
 For testing data, [see the testing file](TESTING.md)
